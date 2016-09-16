@@ -13,3 +13,4 @@ public class ProceduralExample {
 		String[]years = {"Freshman","Sophomore","Junior","Senior"};
 		System.out.println("My name is " + names[0] + "and I am a " + years[3]);
 	}
+}
