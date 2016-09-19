@@ -18,7 +18,7 @@ public class OOPExample {
 		Student jillian = new Senior ("Jillian", "Programmer");
 		Student jordan = new Sophomore ("Jordan" , "Software");
 		Student jason = new Freshman ("Jason", "run");
-		jillian.talk();
+		((Student)jillian).talk();
 		jordan.talk();
 		jason.talk();
 	}
