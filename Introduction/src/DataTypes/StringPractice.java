@@ -20,7 +20,7 @@ public class StringPractice {
 		String word2 = "Zyzzva";
 		if(word1.compareTo(word2) < 0){
 			System.out.println("Word1 is before word2," + 
-		"lexicongraphically.");
+					"lexicongraphically.");
 		}
 
 	}
