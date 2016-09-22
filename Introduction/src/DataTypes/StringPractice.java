@@ -1,7 +1,10 @@
 package DataTypes;
 
+import java.util.Scanner;
+
 public class StringPractice {
 
+	static Scanner input;
 	public static void main(String[] args) {
 //		String text = new String("Hello World!");
 		String text1 = "Hello World"; //same as above,shortcut
