@@ -13,6 +13,9 @@ public class JasonMain {
 	public static void main(String[] args) {
 //		String text = new String("Hello World!");
 		createTopics();
+		String s1 = "a";
+		String s2 = "";
+		System.out.println(s1.compareTo(s2));
 		promptName();
 		talkForever();
 	}
@@ -34,7 +37,7 @@ public class JasonMain {
 		while(inLoop){
 			print("Greetings, " + user + "How are you?");
 			response = getInput();
-			if(response.indexOf("good") >= 0){
+			if(findKeyword(response,"good",0)){
 				print("I'm so happy you're good.");
 			}
 			else if (response.indexOf("school") >= 0){
@@ -50,6 +53,35 @@ public class JasonMain {
 	}
 		
 	
+	public static boolean findKeyword(String searchString, String key, 
+		int startIndex){
+		//delete white space
+		String phrase = searchString.trim();
+		//set all letters to lowercase
+		phrase = phrase.toLowerCase();
+		key = key.toLowerCase();
+		//find position of key
+		int psn = phrase.indexOf(key);
+		//keep looking for word until right context found
+		while(psn >= 0){
+			String before = " ";
+			String after = " ";
+			if(psn + key.length() < phrase.length()){
+				//if the phrase doesnt wend with this word
+				after = phrase.substring(psn + key.length(),
+						psn + key.length() + 1).toLowerCase();
+			}
+			// if the phrase does not begin with this word
+			if(psn > 0){
+				before = phrase.substring(psn -1 , psn).toLowerCase();
+			}
+			if(before.compareTo("a") < 0 &&
+				after.compareTo("a") < 0){
+					
+		
+		return false;
+	}
+
 	public static void createTopics(){
 		input = new Scanner(System.in);
 		school = new School();
