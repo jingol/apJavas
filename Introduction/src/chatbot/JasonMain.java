@@ -9,18 +9,16 @@ public class JasonMain {
 	static boolean inLoop;
 	static String response;
 	static Topic school;
+	static Topic like;
 	
 	public static void main(String[] args) {
 //		String text = new String("Hello World!");
 		createTopics();
-		String s1 = "a";
-		String s2 = "";
-		System.out.println(s1.compareTo(s2));
 		promptName();
 		talkForever();
 	}
 	
-	private static void promptName() {
+	public static void promptName() {
 		print("Hello, human! I am a board covered with "
 				+ "semi-conductors and other"
 				+ " such electronic components."
@@ -37,10 +35,10 @@ public class JasonMain {
 		while(inLoop){
 			print("Greetings, " + user + "How are you?");
 			response = getInput();
-			if(findKeyword(response,"good",0)){
+			if(findKeyword(response,"good",0) >= 0) {
 				print("I'm so happy you're good.");
 			}
-			else if (response.indexOf("school") >= 0){
+			else if ((findKeyword(response,"school",0) >= 0)){
 				inLoop = false; //exit loop
 				school.talk();
 			}
@@ -53,38 +51,80 @@ public class JasonMain {
 	}
 		
 	
-	public static boolean findKeyword(String searchString, String key, 
+	public static int findKeyword(String searchString, String key, 
 		int startIndex){
-		//delete white space
-		String phrase = searchString.trim();
-		//set all letters to lowercase
-		phrase = phrase.toLowerCase();
-		key = key.toLowerCase();
-		//find position of key
-		int psn = phrase.indexOf(key);
-		//keep looking for word until right context found
-		while(psn >= 0){
-			String before = " ";
-			String after = " ";
-			if(psn + key.length() < phrase.length()){
-				//if the phrase doesnt wend with this word
-				after = phrase.substring(psn + key.length(),
-						psn + key.length() + 1).toLowerCase();
+			//delete white space
+			String phrase = searchString.trim();
+			//set all letters to lowercase
+			phrase = phrase.toLowerCase();
+			key = key.toLowerCase();
+			
+			System.out.println("The phrase is " + phrase);
+			System.out.println("The key is " + key);
+			
+			//find position of key
+			int psn = phrase.indexOf(key);
+			System.out.println("The position found is " + psn);
+			//keep looking for word until right context found
+			while(psn >= 0){
+				String before = " ";
+				String after = " ";
+				if(psn + key.length() < phrase.length()){
+					//if the phrase doesnt end with this word
+					after = phrase.substring(psn + key.length(),
+							psn + key.length() + 1).toLowerCase();
+					System.out.println("The character after " + key + "is " + after);
+				}
+				// if the phrase does not begin with this word
+				if(psn > 0){
+					before = phrase.substring(psn -1 , psn).toLowerCase();
+					System.out.println("The character before " + key + "is " + before);
+				}
+				if(before.compareTo("a") < 0 &&
+					after.compareTo("a") < 0){
+					System.out.println(key + " was found at "+ psn);
+					if(noNegations(phrase , psn))
+					return psn;
+				}
+				
+				psn = phrase.indexOf(key, psn + 1);
+				System.out.println((key + " was not found. " + "Checking " + psn));
 			}
-			// if the phrase does not begin with this word
-			if(psn > 0){
-				before = phrase.substring(psn -1 , psn).toLowerCase();
+			
+			return -1;
+	}
+	
+	//helper method, mehtod that contributes. 
+	//funcitoanlity to anotehr method. Very h3elpful when tasks need to be repeated
+	// also makes method more readable
+	// private because it is only used by the method it is helping
+
+	private static boolean noNegations(String phrase, int index) {
+			 //check for word "NO " (3 characters)
+			// check to see if there is space for word "NO " to be in front of index
+			if (index - 3 >= 0 && phrase.substring(index - 3, index).equals("no ")){
+			return false;
 			}
-			if(before.compareTo("a") < 0 &&
-				after.compareTo("a") < 0){
-					
+		//check for "not"
+			if (index - 3 >= 0 && phrase.substring(index - 3, index).equals("no ")){
+				return false;
+				}
+			
+			if (index - 34>= 0 && phrase.substring(index - 3, index).equals("not ")){
+				return false;
+				}
 		
-		return false;
+		
+		if (index - 6 >= 0 && phrase.substring(index - 6, index).equals("never ")){
+			return false;
+			}
+		return true;
 	}
 
 	public static void createTopics(){
 		input = new Scanner(System.in);
 		school = new School();
+		like = new JasonLike();
 	}
 	
 	public static void promptInput(){
