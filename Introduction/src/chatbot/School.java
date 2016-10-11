@@ -19,4 +19,10 @@ public class School implements Topic {
 		}
 	}
 
+	@Override
+	public boolean isTriggered(String userInput) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

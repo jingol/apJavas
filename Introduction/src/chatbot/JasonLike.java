@@ -19,7 +19,7 @@ public class JasonLike implements Topic {
 				
 				if(JasonMain.findKeyword(thingsLiked, "school", 0 ) >= 0){
 					inLikeLoop = false;
-					JasonMain.school.talk;
+					JasonMain.school.talk();
 				}
 			}
 			else{
@@ -28,4 +28,17 @@ public class JasonLike implements Topic {
 		}
 	}
 
+	@Override
+	public boolean isTriggered(String userInput) {
+		String[] triggers = {"school","class","teacher"};
+		//could use for loop to iterate through array
+		if(JasonMain.findKeyword(userInput, "school", 0) >= 0){
+			return true;
+		}
+		if(JasonMain.findKeyword(userInput, "class", 0) >= 0){
+			return true;
+		}
+		
+		return false;
+	}
 }

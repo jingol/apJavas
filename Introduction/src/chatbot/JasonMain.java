@@ -10,6 +10,7 @@ public class JasonMain {
 	static String response;
 	static Topic school;
 	static Topic like;
+	static Topic hello;
 	
 	public static void main(String[] args) {
 //		String text = new String("Hello World!");
@@ -38,9 +39,13 @@ public class JasonMain {
 			if(findKeyword(response,"good",0) >= 0) {
 				print("I'm so happy you're good.");
 			}
-			else if ((findKeyword(response,"school",0) >= 0)){
+			else if (school.isTriggered(response)){
 				inLoop = false; //exit loop
 				school.talk();
+			}
+			else if (like.isTriggered(response)){
+				inLoop = false; //exit loop
+				like.talk();
 			}
 			
 			else
@@ -125,6 +130,7 @@ public class JasonMain {
 		input = new Scanner(System.in);
 		school = new School();
 		like = new JasonLike();
+		hello = new JasonHelllo();
 	}
 	
 	public static void promptInput(){
@@ -138,7 +144,7 @@ public class JasonMain {
 	}
 	
 	public static void print(String s){
-		System.out.println("Line #" + lineCount + ": " + s);
+		System.out.println(s);
 		//create a multi line string
 		String printString = "";
 		int cutoff = 35;
