@@ -130,7 +130,7 @@ public class JasonMain {
 		input = new Scanner(System.in);
 		school = new School();
 		like = new JasonLike();
-		hello = new JasonHelllo();
+	
 	}
 	
 	public static void promptInput(){
