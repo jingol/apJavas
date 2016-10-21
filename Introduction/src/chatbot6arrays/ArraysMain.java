@@ -3,7 +3,7 @@ package chatbot6arrays;
 public class ArraysMain {
 	
 	static int[] exerciseArray = new int[50]; 
-	static String[] deck = new String[52];
+	
 
 	public static void main(String[] args) {
 		//this is how you time how quickly a computer processes
@@ -50,16 +50,21 @@ public class ArraysMain {
 		String[] suits = {"Diamond","Clubs","Heart","Spade"};
 		String[] rank = {"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen"
 				,"King"};
+		String[] deck = new String[52];
 		int cardIndex = 0;
 		for(int i = 0; i < rank.length; i++){
-			for(int s = 0; i < suits.length; i++){
-				deck[cardIndex + 1] = rank[i] + "of" + suits[s];
+			for(int s = 0; s < suits.length; s++){
+				String card = rank[i] + " of " + suits[s];
+				deck[cardIndex] = card;
 				cardIndex++;
 			}
 			
 		}
 		
-		printArray(deck);
+		for(int a = 0; a < deck.length; a++){
+			System.out.println(deck[a]);
+		}
+		
 	}
 	
 	private static void passByValueDemonstration(){
