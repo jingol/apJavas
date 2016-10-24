@@ -45,9 +45,7 @@ public class CodeBoard {
 	        for(int i = 0; i < array.length; i++){	        	
 	        	if(greater < array[i]){
         			trueCount++;
-        			System.out.println(trueCount);
         			if(i+1 == array.length && trueCount == array.length - 1){
-        				System.out.print("true");
     	        		return true;
     	        	}
         		}
@@ -63,9 +61,7 @@ public class CodeBoard {
 	        for(int i = 0; i < array.length; i++){	        	
 	        	if(greater < array[i]){
         			trueCount++;
-        			System.out.println(trueCount);
         			if(i+1 == array.length && trueCount == array.length - 1){
-        				System.out.print("true");
     	        		return true;
     	        	}
         		}
@@ -89,7 +85,6 @@ public class CodeBoard {
 	         double[] stats = new double[6];
 	         for(int i = 0; i < array.length; i++){
 	        	 stats[0] += array[i];
-	        	 System.out.println(stats[0]);
 	             if(i +1 == array.length){
 	            	stats[0] /= array.length;
 	            	System.out.println("Mean:" + stats[0]);
@@ -99,22 +94,44 @@ public class CodeBoard {
 	         for(int i = 0; i < array.length; i++){
 	        	 if(array[i] > stats[1]){
 	        		 stats[1] = array[i];
-	        		
+	        	 }
+	        	 if(array.length - 1 == i){
+	        		 System.out.println("Max:" + stats[1]);
 	        	 }
 	 
 	         }
 	         
 	         for(int i = 0; i < array.length; i++){
-	        	 if(array[i] > stats[2]){
+	        	 if(array[i] < stats[1]){
 	        		 stats[2] = array[i];
-	        		 
+	        	 }
+	        	 if(array.length - 1 == i){
+	        		 System.out.println("Min:" + stats[2]);
 	        	 }
 	 
 	         }
 	         
-	         if(isSortedDoub(array)){
-	        	 
+	         if(!isSortedDoub(array)){
+	        	 if(array.length % 2 == 0){
+	        		 stats[3] = ((array[array.length/2] + array[array.length/2 + 1])/2);
+	        	 }
 	         }
+	         else{
+	        	 double[] sorted = new double[array.length];
+	        	 for(int i = 0; i < array.length; i++){
+	        		 int greaterValue = 0;
+	        		 double compared = array[i];
+	        		 for (int a = 0; a < array.length; a++){
+	        			 if(array[a] < compared){
+	        				 greaterValue++;
+	        				 if(array.length - 1 == a){
+	        					 sorted[greaterValue] = compared;
+	        				 }
+	        			 }
+	        		 }
+	        	 }
+	         }
+	         
 	         
 	         return stats;
 	    }
