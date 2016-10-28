@@ -1,5 +1,7 @@
 package chatbot6arrays;
 
+import java.util.Arrays;
+
 public class CodeBoard {
 
 
@@ -14,9 +16,12 @@ public class CodeBoard {
 	      * says that it isn't perfect!
 	      * */
 	    	int[] sortedArray = {1,2,3,4,5};
-	    	double[] randomDoub = {4,7,1,8,2,10};
+	    	double[] randomDoub = {4,7,1};
 	    	isSorted(sortedArray);
 	    	getStats(randomDoub);
+	    	
+	    	 
+	    	
 	    }
 	    
 	    public static int searchUnsorted(int[] arrayToSearch, int key){
@@ -72,70 +77,62 @@ public class CodeBoard {
 	    
 	    
 	    public static double[] getStats(double[] array){
-	        /** 
-	         * This method return a double[] contain a WHOLE BUNCH of stats
-	         * The double array must keep the following stats about the array parameter:
-	         * index 0 = the mean
-	         * index 1 = the max
-	         * index 2 = the min
-	         * index 3 = the median
-	         * index 4 = the number of values greater than or equal to the mean
-	         * index 5 = the number of values below the mean
-	         * */
-	         double[] stats = new double[6];
-	         for(int i = 0; i < array.length; i++){
-	        	 stats[0] += array[i];
-	             if(i +1 == array.length){
-	            	stats[0] /= array.length;
-	            	System.out.println("Mean:" + stats[0]);
-	             }
-	         }
-	         
-	         for(int i = 0; i < array.length; i++){
-	        	 if(array[i] > stats[1]){
-	        		 stats[1] = array[i];
-	        	 }
-	        	 if(array.length - 1 == i){
-	        		 System.out.println("Max:" + stats[1]);
-	        	 }
-	 
-	         }
-	         
-	         for(int i = 0; i < array.length; i++){
-	        	 if(array[i] < stats[1]){
-	        		 stats[2] = array[i];
+	    	double[] stats = new double[6];
+	    	double sum = 0;
+	    	int aboveCtr = 0;
+	    	int belowCtr = 0;
+	    	for (int i = 0; i < array.length; i++) {
+	    		sum += array[i];
+	    	}
+	    	stats[0] = sum/array.length;
+	    	for (int i = 0; i < array.length; i++) {
+	    		if (array[i] > stats[1]) {
+	    			stats[1] = array[i];
+	    		}
+	    	}
+	    	
+	    	double min = array[0];
+	        for(int i = 0; i < array.length; i++){
+	        	 if(array[i] < min){
+	        		 stats[i] = array[i];
 	        	 }
 	        	 if(array.length - 1 == i){
 	        		 System.out.println("Min:" + stats[2]);
 	        	 }
 	 
 	         }
-	         
-	         if(!isSortedDoub(array)){
-	        	 if(array.length % 2 == 0){
-	        		 stats[3] = ((array[array.length/2] + array[array.length/2 + 1])/2);
-	        	 }
-	         }
-	         else{
-	        	 double[] sorted = new double[array.length];
-	        	 for(int i = 0; i < array.length; i++){
-	        		 int greaterValue = 0;
-	        		 double compared = array[i];
-	        		 for (int a = 0; a < array.length; a++){
-	        			 if(array[a] < compared){
-	        				 greaterValue++;
-	        				 if(array.length - 1 == a){
-	        					 sorted[greaterValue] = compared;
-	        				 }
-	        			 }
-	        		 }
-	        	 }
-	         }
-	         
-	         
-	         return stats;
+	    	for (int i = 0; i < array.length; i++) {
+	    		if (array[i] >= sum/array.length) {
+	    			aboveCtr++;
+	    		}
+	    		else {
+	    			belowCtr++;
+	    		}
+	    	}
+	    	stats[4] = aboveCtr;
+	    	stats[5] = belowCtr;
+	    	
+	    	for (int i = 0; i < array.length - 1; i++) {    		
+				for (int x = 0; x < array.length - 1; x++) {
+				    double current = array[x];
+		    		double next = array[x + 1];
+		    		if (current > next) { 
+		    			array[x + 1] = current;
+		    			array[x] = next;
+		    		}
+				}
+	    	}
+	    	if (array.length % 2 == 0) {
+	    		double first = array[array.length/2];
+	    		double second = array[(array.length/2) - 1];
+	    		stats[3] = (first + second)/2;
+	    	}
+	    	else {
+	    		stats[3] = array[(int) (array.length/2)];
+	    	}
+	    	System.out.println(Arrays.toString(stats));
+	    	return stats;
 	    }
-	    
 	    public static void reverseOrder(int[] array){
 	        /**
 	         * this method reverses the order of the array passed to it.
@@ -150,6 +147,7 @@ public class CodeBoard {
 	         * 
 	         * */
 	    }
+	   
 	    
 	    public static int countDifferences(int[] array1, int[] array2){
 	        /**Here, you will write an method that returns the number of values in two arrays 
@@ -162,7 +160,15 @@ public class CodeBoard {
 	         * countDifferences({1,2,3},{1,3,2}) returns 2, since '2' and '3' are both present, but different locations
 	         * 
 	         * */
-	         return 0;
+	    	
+	    	int count = array1.length;
+	    	for(int i = 0; i < array1.length; i++){
+	    		if(array1[i] == array2[i]){
+	    			count++;
+	    		}
+	    		
+	    	}
+	         return count;
 	    }
 	    
 

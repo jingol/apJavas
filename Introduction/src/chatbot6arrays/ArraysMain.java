@@ -67,6 +67,40 @@ public class ArraysMain {
 		
 	}
 	
+	 public static int countUnderBound(double[] arr, double d){
+	    	int underCount = 0;
+	    	for(int i = 0; i < arr.length; i++){
+	    		if(arr[i] < d){
+	    			underCount++;
+	    		}
+	    	}
+	    	
+	    	return underCount;
+	    }
+	 
+	 public static int[] getSubArray(int[] arr, int startIndex, int endIndex){
+		 int[] subArray = new int[endIndex - startIndex + 1];
+		 for(int i = 0; i < subArray.length; i++){
+			 subArray[i] = arr[startIndex + i];
+		 }
+		 return subArray;
+	 }
+	 
+	 public static boolean contains(int[] arr, int[] subArray){
+		 for(int i = 0; i < arr.length; i++){
+				 int j = i;
+				 while(j < subArray.length){
+					 if(subArray[j] == arr[i] ){
+						 return true;
+					 }
+					 
+				 }
+			 }
+		 
+		 return false;
+	 
+}
+	
 	private static void passByValueDemonstration(){
 		String[] someStrings = new String[100];
 		populateArray(someStrings);
