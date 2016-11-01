@@ -1,5 +1,7 @@
 package datatypes;
 
+import java.util.Arrays;
+
 public class ArraysHW {
 
 	public static void main(String[] args) {
@@ -14,12 +16,14 @@ public class ArraysHW {
 	      * */
 	    	int[] sortedArray = {1,2,3,4,5,6,7,8};
 	    	int[] unsortedArray = {5,1,3,7,10};
+	    	int[] sortedDesc = {5,4,3,2,1};
 	    	double[] randomDoub = {4,7,1,8,2,10,12};
-	    	isSorted(sortedArray);
+	    	isSorted(sortedDesc);
 	    	getStats(randomDoub);
-	    	reverseOrder(sortedArray);
 	    	searchUnsorted(unsortedArray,3);
 	    	longestConsecutiveSequence(sortedArray);
+	    	countDifferences(sortedDesc,unsortedArray);
+	    	cycleThrough(sortedArray, 3);
 	    }
 	    
 	    public static int searchUnsorted(int[] arrayToSearch, int key){
@@ -44,35 +48,39 @@ public class ArraysHW {
 	     * 
 	     * Note: You should attempt to write a method that is more efficient that searchUnsorted
 	     * */
+	    	
+	    	
 	     return -1;
 	    }
 	    
 	    public static boolean isSorted(int[] array){
-	        int trueCount = 0;
-	        int greater = array[0];
+	    	int trueCount = 0;
+	        double greater = array[0];
 	        for(int i = 0; i < array.length; i++){	        	
-	        	if(greater < array[i]){
-       			trueCount++;
-       			if(i+1 == array.length && trueCount == array.length - 1){
-   	        		return true;
-   	        	}
-       		}
+	        	if(greater > array[i]){
+      			trueCount++;
+      			if(trueCount == array.length - 1){
+      				System.out.println(true);
+  	        		return true;
+  	        	}
+      		}
 	        	
 	        }
 	        return false;
 	    }
+
 	    
 	    //helper
-	    public static boolean isSortedDoub(double[] array){
+	    public static boolean isSortedAsc(double[] array){
 	        int trueCount = 0;
 	        double greater = array[0];
 	        for(int i = 0; i < array.length; i++){	        	
 	        	if(greater < array[i]){
-       			trueCount++;
-       			if(i+1 == array.length && trueCount == array.length - 1){
-   	        		return true;
-   	        	}
-       		}
+      			trueCount++;
+      			if(i+1 == array.length && trueCount == array.length - 1){
+  	        		return true;
+  	        	}
+      		}
 	        	
 	        }
 	        return false;
@@ -90,7 +98,6 @@ public class ArraysHW {
 	         * index 4 = the number of values greater than or equal to the mean
 	         * index 5 = the number of values below the mean
 	         * */
-	    	
 	         double[] stats = new double[6];
 	         for(int i = 0; i < array.length; i++){
 	        	 stats[0] += array[i];
@@ -99,6 +106,7 @@ public class ArraysHW {
 	            	System.out.println("Mean:" + stats[0]);
 	             }
 	         }
+	         
 	         
 	         for(int i = 0; i < array.length; i++){
 	        	 if(array[i] > stats[1]){
@@ -110,10 +118,11 @@ public class ArraysHW {
 	 
 	         }
 	         
-	         double min = array[0];
+	         double mincount = array[0];
 	         for(int i = 0; i < array.length; i++){
-	        	 if(array[i] < min){
-	        		 stats[i] = array[i];
+	        	 if(array[i] < mincount){
+	        		 stats[2] = array[i];
+	        		 mincount = array[i];
 	        	 }
 	        	 if(array.length - 1 == i){
 	        		 System.out.println("Min:" + stats[2]);
@@ -122,7 +131,7 @@ public class ArraysHW {
 	         }
 	         
 	         
-	         if(isSortedDoub(array)){
+	         if(isSortedAsc(array)){
 	        	 if(array.length % 2 == 0){
 	        		 stats[3] = ((array[array.length/2] + array[array.length/2 - 1])/2);
 	        	 }
@@ -140,8 +149,8 @@ public class ArraysHW {
 	        				 greaterValue++;
 	        			 }
 	        			 if(array.length - 1 == a){
-        					 sorted[greaterValue] = compared;
-        				 }
+       					 sorted[greaterValue] = compared;
+       				 }
 	        		 }
 	        	 }
 	        	 
@@ -157,23 +166,23 @@ public class ArraysHW {
 	         int bigcounter = 0;
 	         for(int i = 0; i < array.length; i++){
 	        	 
-	        	 if(array[i] < stats[0]){
-	        		 smallcounter++;
-	        		 stats[4] = smallcounter;
+	        	 if(array[i] > stats[0]){
+	        		 bigcounter++;
 	        	 }
 	        	 
+	        	 stats[4] = bigcounter;
 	         }
 	         
 	         for(int i = 0; i < array.length; i++){
 	        	 
-	        	 if(array[i] > stats[0]){
-	        		 bigcounter++;
-	        		 stats[5] = bigcounter;
+	        	 if(array[i] < stats[0]){
+	        		 smallcounter++;
 	        	 }
 	        	 
+	        	 stats[5] = smallcounter;
 	         }
 	         
-	         
+	         System.out.println(java.util.Arrays.toString(stats));
 	         return stats;
 	    }
 	    
@@ -197,6 +206,9 @@ public class ArraysHW {
 	    		reversedArray[reversedIndex] = array[i];
 	    		reversedIndex++;
 	    	}
+	    	for(int i = 0; i < array.length; i++){
+	    	    array[i] = reversedArray[i];
+	    	}
 	    }
 	    
 	    public static int countDifferences(int[] array1, int[] array2){
@@ -210,7 +222,15 @@ public class ArraysHW {
 	         * countDifferences({1,2,3},{1,3,2}) returns 2, since '2' and '3' are both present, but different locations
 	         * 
 	         * */
-	         return 0;
+	    	int diffCount = array1.length;
+	    	for(int i = 0; i < array1.length;i++){
+	    		if(array1[i] == array2[i]){
+	    			diffCount--;
+	    		}
+	    	}
+	    	
+	    	
+	         return diffCount;
 	    }
 	    
 
@@ -226,17 +246,26 @@ public class ArraysHW {
 	         * */
 	    	int seqCount = 1;
 	    	for(int i = 0; i < array1.length; i++){
-	    		if(i + 1 == array1.length){
-	    			return seqCount; 
-	    		}
-	    		if(array1[i+1] == array1[i] + 1){
-	    			seqCount++;
+	    		int nextItem = array1[i] + 1;
+	    		
+	    		
+	    		if(i == array1.length - 1){
+	    			
+	    			return seqCount;
 	    		}
 	    		
+	    		if(array1[i+1] == nextItem){
+		    		seqCount++;
+		    			
+		    		}
+	    		
+	    			
+	    		}
+	    	
+	    		return seqCount;
 	    	}
 	        
-	        return 1;
-	    }
+	    
 
 	    public static int longestSharedSequence(int[] array1, int[] array2){
 	        /**This method counts the longest unbroken, shared sequence in TWO arrays.
@@ -267,9 +296,30 @@ public class ArraysHW {
 	         * contains only entries between 1 and 2n (inclusive) and has no duplicates
 	         * 
 	         * */
-	        return null; 
+	         int[] generated = new int[n];
+	         for(int i = 0; i < generated.length; i++){
+	         int randomInt = (int) (Math.random() * n * 2);
+	         while(contains(generated,randomInt)){
+	             randomInt = (int) (Math.random() * n * 2);
+	         }
+	         if(randomInt != generated[i]){
+	             generated[i] = randomInt;
+	         }
+	         }
+	         
+	         
+	         System.out.println(Arrays.toString(generated));
+	        return generated; 
 	    }
 	    
+	    public static boolean contains(int[] array, int n){
+	        for(int i = 0; i < array.length; i++){
+	            if(array[i] == n){
+	                return true;
+	            }
+	        }
+	        return false;
+	    }
 	    
 	    public static void cycleThrough(int[] array, int n){
 	        /** This problem represents people moving through a line.
@@ -294,7 +344,45 @@ public class ArraysHW {
 	         * CHALLENGE
 	         * For extra credit, make your method handle NEGATIVE n
 	         * */
+	    	
+	    	if(n > 0) {
+	    		for (int i = n; i > 0; i--){
+	    			for(int a = array.length - 1; a > 0; a --){
+	    				int item1 = array[0];
+	    				int itemLast = array[a];
+	    				array[0] = itemLast;
+	    				array[a] = item1;
+	    			}
+	    		}
+	    		
+	    	}
 	    }
+	
+		private static void testPrimes(int numberToTest){
+		    int lastToCheck = (int) (Math.sqrt(numberToTest));
+		    boolean[] theNumbers = new boolean[numberToTest];
+		    for(int i = 0; i < numberToTest; i++){
+			theNumbers[i] = true;
+		    }
+		    theNumbers[0] = false;
+		    theNumbers[1] = false;
+		    int increment = 2;
+		    boolean first = true;
+		    for(int test = 2; test <= numbersToTest; test = test + increment){
+			if(!first){
+			    theNumbers[test] = false;
+			}
+			else{
+			    first = false;
+			}
+		    }
+
+		    for(int i = 0; i < theNumbers.length; i++){
+			if(theNumbers[i]){
+			    System.out.println(i + " is prime.");
+			}
+		    }
+		}
 
 }
 
