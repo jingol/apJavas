@@ -2,14 +2,8 @@ package introUnit;
 
 public class PopulateRandomArray {
 
-	public static void main(String[] args){
-		//int[]arr={0,1,2,3,4,5,6,};
-		//System.out.println(popArray(arr));
-		//int randArr.length<arr.length;
-		//populate randArr with elements from arr that are random and do not repeat
-		//for
-		testPrimes(50);
-	}
+	
+	
 	public static int indexOf(int[] arrayToSearch, int key){
 		for (int i=0;i<arrayToSearch.length;i++){
 	    	if (key==arrayToSearch[i]){
@@ -28,6 +22,16 @@ public class PopulateRandomArray {
 			}
 			randArr[r]=toAdd;
 		}
+	}
+	
+	public static void main(String[] args){
+	    String[] letters = {"A","C","B"};
+	    String[] numbers = {"3","1","2"};
+	    for(int j=0; j<6; j+=2){
+	        for(String l : letters){
+	            System.out.print(l+numbers[j%3]);
+	        }
+	    }
 	}
 	
 	public static void testPrimes(int numberToTest){
