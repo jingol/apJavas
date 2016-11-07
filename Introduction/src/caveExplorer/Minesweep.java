@@ -37,7 +37,9 @@ public class Minesweep {
 			for(int col = c - 1; col <= c + 1; col++){
 				//exclude this element when counting
 				if(row != r && col != c){
-					
+					if(row >= 0 && row < mines.length && col >=0 && col < mines[row].length){
+						
+					}
 				}
 			}
 		}
