@@ -11,17 +11,20 @@ public class CaveExplorer {
 	
 	public static void main(String[] args){
 		caves = new CaveRoom[5][5];
+		in = new Scanner(System.in);
 		for(int row = 0; row < caves.length; row++){
 			for(int col = 0; col < caves[row].length; col++){
 				caves[row][col] = new CaveRoom("This cave has coordinates " + row + " , " + col);
 			}
 		}
 		
+		caves[0][2] = new EventRoom("This is the room where that guy with a tail met you",
+				new GameStartEvent());
 		currentRoom = caves[0][1];
 		currentRoom.enter();
 		caves[0][1].setConnection(CaveRoom.EAST,caves[0][2],new Door());
 		caves[0][2].setConnection(CaveRoom.SOUTH,caves[1][2],new Door());
-		caves[1][2].setConnection(CaveRoom.EAST,caves[2][2],new Door());
+		
 		inventory = new Inventory();
 		startExploring();
 	}
@@ -36,6 +39,12 @@ public class CaveExplorer {
 		}
 		
 	}
+
+	public static void print(String string) {
+		System.out.println(string);
+	}
+	
+	
 	
 	
 }

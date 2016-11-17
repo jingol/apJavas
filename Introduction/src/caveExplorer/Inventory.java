@@ -6,7 +6,7 @@ public class Inventory {
 	private String map;
 	
 	public Inventory(){
-		hasMap = true;
+		hasMap = false;
 		updateMap();
 	}
 	
@@ -25,10 +25,13 @@ public class Inventory {
 				//a line of text for each row
 				String text = " ";
 				for(CaveRoom cr: row){
-					 text += "|";
+					
 					if(cr.getDoor(CaveRoom.WEST) != null 
 							&& cr.getDoor(CaveRoom.WEST).isOpen()){
 						text += " ";				
+					}
+					else{
+						text +="|";
 					}
 					if(i == 0){
 						text += "   "; // 3 spaces
@@ -57,7 +60,7 @@ public class Inventory {
 			return map;
 		}
 		else{
-			return "There is nothing in your inventory";
+			return "There is nothing in your inventory. ";
 		}
 		
 	}

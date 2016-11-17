@@ -130,16 +130,26 @@ public class CaveRoom {
 			}
 		}
 		
-		if(borderingRooms[indexFound] != null && doors[indexFound].isOpen()){
+		goToRoom(indexFound);
+	}
+
+	public void goToRoom(int direction){
+		if(borderingRooms[direction] != null && doors[direction].isOpen()){
 			CaveExplorer.currentRoom.leave();
-			CaveExplorer.currentRoom = borderingRooms[indexFound];
+			CaveExplorer.currentRoom = borderingRooms[direction];
 			CaveExplorer.currentRoom.enter();
 			CaveExplorer.inventory.updateMap();
 		}
 	}
-
+	
 	private boolean isValid(String input) {
-		// TODO Auto-generated method stub
+		String[] keys = {"w","a","s","d"};
+		String check = input.toLowerCase().trim();
+		for(String key: keys){
+			if(key.equals(check)){
+				return true;
+			}
+		}
 		return false;
 	}
 	
