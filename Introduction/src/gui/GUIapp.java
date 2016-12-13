@@ -10,7 +10,6 @@ public abstract class GUIapp extends JFrame{
 	private Screen currentScreen;
 	
 	
-	
 	public GUIapp(int width,int height){
 		super();
 		setBounds(20,20,width,height);

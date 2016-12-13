@@ -4,15 +4,22 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
-public class Screen {
+import guiCompononets.Visible;
+
+public abstract class Screen {
 	
 	private BufferedImage image;
+	private ArrayList<Visible> viewObjects;
 
 	public Screen(int width,int height) {
 		initImage(width,height);
-		
+		initObjects(viewObjects);
+		viewObjects = new ArrayList<Visible>();
 	}
+	
+	public abstract void initObjects(ArrayList<Visible> viewObjects);
 
 
 	public void initImage(int width, int height) {
@@ -43,6 +50,13 @@ public class Screen {
 		g.setColor(Color.black);
 		g.drawString("Hello world!" , 40, 100);
 		g.drawOval(20, 70, 100, 50);
+//		for(int i = 0; i < viewObjects.size(); i++){
+//			
+//		}
+		for(Visible v: viewObjects){
+			g.drawImage(v.getImage(), v.getX(), v.getY(), null);
+		}
+		
 	}
 	
 //	//			ABSTRACTION
