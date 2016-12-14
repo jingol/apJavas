@@ -9,6 +9,8 @@ public abstract class GUIapp extends JFrame{
 	//fields
 	private Screen currentScreen;
 	
+	public static void main(String[] args){
+	}
 	
 	public GUIapp(int width,int height){
 		super();
