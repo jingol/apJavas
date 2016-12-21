@@ -33,7 +33,7 @@ public class Graphic implements Visible {
 			this.x = x;
 			this.y = y;
 			loadedImages = false;
-			loadImages(imageLocation,scale;
+			loadImages(imageLocation,scale);
 		}
 		
 	//for scaled
