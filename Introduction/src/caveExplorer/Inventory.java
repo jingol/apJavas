@@ -4,7 +4,7 @@ public class Inventory {
 
 	private boolean hasMap;
 	private String map;
-	
+	private boolean haskey = false;
 	public Inventory(){
 		hasMap = false;
 		updateMap();
@@ -68,4 +68,14 @@ public class Inventory {
 	public void setMap(boolean b){
 		hasMap = b;
 	}
+
+	public boolean isHaskey() {
+		return haskey;
+	}
+
+	public void setHaskey(boolean haskey) {
+		this.haskey = haskey;
+	}
+	
+	
 }
