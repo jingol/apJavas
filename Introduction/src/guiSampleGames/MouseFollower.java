@@ -2,7 +2,6 @@ package guiSampleGames;
 
 import gui.GUIapp;
 import guiScreens.CoordinateScreen;
-import guiScreens.MyScreen;
 
 public class MouseFollower extends GUIapp {
 	
