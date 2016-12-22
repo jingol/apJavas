@@ -1,4 +1,4 @@
-package guiSampleGames;
+package guiScreens;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -8,6 +8,7 @@ import guiCompononets.Action;
 import guiCompononets.Button;
 import guiCompononets.Graphic;
 import guiCompononets.Visible;
+import guiSampleGames.MouseFollower;
 
 public class MyScreen extends Screen {
 	
