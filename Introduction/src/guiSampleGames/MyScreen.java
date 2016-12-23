@@ -32,8 +32,8 @@ public class MyScreen extends Screen implements MouseListener,MouseMotionListene
 			
 			@Override
 			public void act() {
-				int xmove = (int) (Math.random() * 5);
-				int ymove = (int) (Math.random() * 5);
+				int xmove = (int) (Math.random() * 10);
+				int ymove = (int) (Math.random() * 10);
 				int dir = (int) (Math.random() * 2);
 				if(dir == 0){
 					clicks.x =- xmove;

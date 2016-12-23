@@ -28,6 +28,7 @@ public abstract class Screen {
 	public void initImage(int width, int height) {
 		image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		update();
+		
 	}
 
 	public BufferedImage getImage(){
@@ -70,6 +71,14 @@ public abstract class Screen {
 		return null;
 	}
 	
+	
+	public void addObject(Visible v){
+		viewObjects.add(v);
+	}
+	
+	public void remove(Visible v){
+		viewObjects.remove(v);
+	}
 	
 //	//			ABSTRACTION
 //	// interface - implement as many interfaces as you want
