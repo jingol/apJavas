@@ -55,7 +55,8 @@ public abstract class Screen {
 //		for(int i = 0; i < viewObjects.size(); i++){
 //			
 //		}
-		for(Visible v: viewObjects){
+		for(int i = 0; i < viewObjects.size(); i++){
+		
 			g.drawImage(v.getImage(), v.getX(), v.getY(), null);
 		}
 	}
@@ -78,6 +79,65 @@ public abstract class Screen {
 	
 	public void remove(Visible v){
 		viewObjects.remove(v);
+		
+		/**
+		 * Note: in this implementation, we have
+		 * a very simple command: remove(v)
+		 * however remove is a sorta big ddeal on ap exam
+		 * 
+		 * When an object is removed from a List, every other obejct after that object
+		 * is move up in order. Thus all indices change.
+		 * Must beware of this.
+		 * 
+		 * here is a CLAAAASIC exmaple
+		 * 
+		 * The following is WRONG
+		 * Suppose you have a List<Integer> with
+		 * {4,8,7,1}
+		 * and you want to remove all integers greater than 5
+		 * You do this:
+		 * for(int i = 0; i < list.size(); i++){
+		 * 		if(list.get(i) >5) list.remove(i);
+		 * }
+		 * You fail.
+		 * i = 0; nothing changes.
+		 * i=1, 8 is removed, {4,7,1};
+		 * i=2, nothing changes
+		 * i=3, exit loop
+		 * 
+		 * THESE TWO WAYS ARE CORRECT:
+		 * 
+		 * for(int i = 0; i < list.size(); i++){
+		 * 		while(list.get(i) >5) list.remove(i);
+		 * }
+		 * 
+		 * for(int i = 0; i < list.size(); i++){
+		 * 		if(list.get(i) >5){
+		 * 			list.remove(i);
+		 * 			i--;
+		 * 		}
+		 * }
+		 * 
+		 * FOR THE SAME REASON,THE FOLLOWING WON'T WORK
+		 * (because the size can be changed)
+		 * for(integer i:list){
+		 * 		if(i>5)list.remove(i); 
+		 */
+	 }
+	
+	public void moveToBack(Visible v){
+		if(viewObjects.contains(v)){
+			viewObjects.remove(v);
+			//the "back is index 0
+			viewObjects.add(0,v);
+		}
+	}
+	
+	public void moveToFront(Visible v){
+		if(viewObjects.contains(v)){
+			viewObjects.remove(v);
+			viewObjects.add(v);
+		}
 	}
 	
 //	//			ABSTRACTION
