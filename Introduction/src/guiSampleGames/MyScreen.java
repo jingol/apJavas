@@ -28,24 +28,24 @@ public class MyScreen extends Screen implements MouseListener,MouseMotionListene
 		Vicki = new Graphic(80,30,100,100, "resources/sampleImages/vicki.png");
 		viewObjects.add(Vicki);
 		
-		clicks = new ClickableGraphic(100,70,100,150, "resources/sampleImages/downn.jpg", new Action() {
-			
-			@Override
-			public void act() {
-				int xmove = (int) (Math.random() * 10);
-				int ymove = (int) (Math.random() * 10);
-				int dir = (int) (Math.random() * 2);
-				if(dir == 0){
-					clicks.x =- xmove;
-					clicks.y =- ymove;
-				}
-				else{
-					clicks.x =+ xmove;
-					clicks.y =+ ymove;
-				}
-			}
-		});
-		viewObjects.add(clicks);
+//		clicks = new ClickableGraphic(100,70,100,150, "resources/sampleImages/downn.jpg", new Action() {
+//			
+//			@Override
+//			public void act() {
+//				int xmove = (int) (Math.random() * 10);
+//				int ymove = (int) (Math.random() * 10);
+//				int dir = (int) (Math.random() * 2);
+//				if(dir == 0){
+//					clicks.x =- xmove;
+//					clicks.y =- ymove;
+//				}
+//				else{
+//					clicks.x =+ xmove;
+//					clicks.y =+ ymove;
+//				}
+//			}
+//		});
+//		viewObjects.add(clicks);
 		
 
 	}
