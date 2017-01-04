@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.List;
 
 import guiCompononets.Visible;
 
@@ -55,8 +56,7 @@ public abstract class Screen {
 //		for(int i = 0; i < viewObjects.size(); i++){
 //			
 //		}
-		for(int i = 0; i < viewObjects.size(); i++){
-		
+		for(Visible v: viewObjects){
 			g.drawImage(v.getImage(), v.getX(), v.getY(), null);
 		}
 	}
@@ -138,6 +138,11 @@ public abstract class Screen {
 			viewObjects.remove(v);
 			viewObjects.add(v);
 		}
+	}
+
+	public void initObjects(List<Visible> viewObjects) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 //	//			ABSTRACTION
