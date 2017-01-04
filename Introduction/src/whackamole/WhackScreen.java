@@ -7,7 +7,7 @@ import guiCompononets.TextLabel;
 import guiCompononets.Visible;
 import guiScreens.ClickableScreen;
 
-public class WhackScreen extends ClickableScreen {
+public class WhackScreen extends ClickableScreen implements Runnable{
 
 	private ArrayList<MoleInterface> moles;
 	 private PlayerInterface player;
@@ -50,6 +50,24 @@ public class WhackScreen extends ClickableScreen {
 	
 	public MoleInterface getAMole(){
 		return null;
+	}
+
+
+
+	@Override
+	public void run() {
+		changeText("Ready...");
+		changeText("Set...");
+		changeText("Go!");
+		label.setText(" " );
+	}
+	
+	public void changeText(String string){
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	
