@@ -47,12 +47,11 @@ public class WhackScreen extends ClickableScreen implements Runnable{
 	}
 	
 	public PlayerInterface getAPlayer(){
-		return null;
-		//placeholder until partner works
+		return new Player();
 	}
 	
 	public MoleInterface getAMole(){
-		return null;
+		return new Mole((int) (Math.random() * getWidth()), (int) (Math.random() * getHeight()));
 	}
 
 
