@@ -17,7 +17,7 @@ public class Pokemon {
 	
 	public void attack(Pokemon target, Attack attack){
 		if(Math.random() < .9){
-			attack.attack(target);
+			Attack.attack(target);
 			System.out.println("The attack hit");
 		}
 		else{
