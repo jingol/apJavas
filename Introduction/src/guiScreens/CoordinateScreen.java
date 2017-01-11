@@ -10,6 +10,7 @@ import gui.Screen;
 import guiCompononets.Action;
 import guiCompononets.Button;
 import guiCompononets.Graphic;
+import guiCompononets.MovingComponent;
 import guiCompononets.TextArea;
 import guiCompononets.TextLabel;
 import guiCompononets.Visible;
@@ -47,7 +48,11 @@ public class CoordinateScreen extends Screen implements MouseMotionListener,Mous
 				new TextArea(20, 240, 500, 40, "shamalamadingdong i have crippling depression kekt");
 		viewObjects.add(area);
 		
-		
+		MovingComponent c = new MovingComponent(20,20,100,100);
+		viewObjects.add(c);
+		c.setVx(2);
+		c.setVy(3);
+		c.play();
 		
 	}
 
