@@ -24,7 +24,6 @@ public class Graphic implements Visible {
 	public Graphic(int x,int y,int w, int h, String imageLocation) {
 		this.x = x;
 		this.y = y;
-		loadedImages = false;
 		loadImages(imageLocation,w,h);
 	}
 	

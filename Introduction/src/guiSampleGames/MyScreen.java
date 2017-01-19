@@ -1,14 +1,11 @@
 package guiSampleGames;
 
-import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import gui.Screen;
-import guiCompononets.Action;
-import guiCompononets.Button;
 import guiCompononets.ClickableGraphic;
 import guiCompononets.Graphic;
 import guiCompononets.Visible;
@@ -16,7 +13,6 @@ import guiCompononets.Visible;
 public class MyScreen extends Screen implements MouseListener,MouseMotionListener {
 	
 	private Graphic Vicki;
-	private Button myButton;
 	private ClickableGraphic clicks;
 
 	public MyScreen(int width, int height) {

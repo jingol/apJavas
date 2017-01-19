@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import gui.Screen;
 import guiCompononets.Action;
 import guiCompononets.Button;
-import guiCompononets.Graphic;
 import guiCompononets.MovingComponent;
 import guiCompononets.TextArea;
 import guiCompononets.TextLabel;
@@ -21,8 +20,6 @@ public class CoordinateScreen extends Screen implements MouseMotionListener,Mous
 	private Button theButton;
 	private TextLabel text;
 	private TextArea area;
-	private Graphic cocoon;
-
 	public CoordinateScreen(int width, int height) {
 		super(width, height);
 		
