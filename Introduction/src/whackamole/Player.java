@@ -3,7 +3,7 @@ package whackamole;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import guiCompononets.Component;
+import gui.components.Component;
 
 public class Player extends Component implements PlayerInterface {
 

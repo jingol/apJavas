@@ -1,7 +1,7 @@
 package whackamole;
 
-import guiCompononets.Action;
-import guiCompononets.Clickable;
+import gui.components.Action;
+import gui.components.Clickable;
 
 public interface MoleInterface extends Clickable {
 

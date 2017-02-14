@@ -3,10 +3,10 @@ package jasonSimon;
 import java.util.ArrayList;
 import java.util.List;
 
-import guiCompononets.ClickableGraphic;
-import guiCompononets.TextLabel;
-import guiCompononets.Visible;
-import guiScreens.ClickableScreen;
+import gui.components.ClickableGraphic;
+import gui.components.TextLabel;
+import gui.components.Visible;
+import gui.screens.ClickableScreen;
 import whackamole.MoleInterface;
 import whackamole.PlayerInterface;
 

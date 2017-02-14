@@ -1,6 +1,6 @@
 package jasonSimon;
 
-import guiCompononets.Visible;
+import gui.components.Visible;
 
 public interface ProgressInterfaceJasonLau extends Visible {
 

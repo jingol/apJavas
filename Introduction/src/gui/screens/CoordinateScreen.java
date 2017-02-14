@@ -1,4 +1,4 @@
-package guiScreens;
+package gui.screens;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -7,13 +7,13 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import gui.Screen;
-import guiCompononets.Action;
-import guiCompononets.Button;
-import guiCompononets.Graphic;
-import guiCompononets.MovingComponent;
-import guiCompononets.TextArea;
-import guiCompononets.TextLabel;
-import guiCompononets.Visible;
+import gui.components.Action;
+import gui.components.Button;
+import gui.components.Graphic;
+import gui.components.MovingComponent;
+import gui.components.TextArea;
+import gui.components.TextLabel;
+import gui.components.Visible;
 import guiSampleGames.MouseFollower;
 
 public class CoordinateScreen extends Screen implements MouseMotionListener,MouseListener{

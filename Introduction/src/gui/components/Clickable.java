@@ -1,4 +1,4 @@
-package guiCompononets;
+package gui.components;
 
 public interface Clickable extends Visible {
 

@@ -1,4 +1,4 @@
-package guiScreens;
+package gui.screens;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gui.Screen;
-import guiCompononets.Clickable;
-import guiCompononets.Visible;
+import gui.components.Clickable;
+import gui.components.Visible;
 
 public abstract class ClickableScreen extends Screen implements MouseListener {
 	

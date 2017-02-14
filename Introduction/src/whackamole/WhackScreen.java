@@ -3,10 +3,10 @@ package whackamole;
 import java.util.ArrayList;
 import java.util.List;
 
-import guiCompononets.Action;
-import guiCompononets.TextLabel;
-import guiCompononets.Visible;
-import guiScreens.ClickableScreen;
+import gui.components.Action;
+import gui.components.TextLabel;
+import gui.components.Visible;
+import gui.screens.ClickableScreen;
 
 public class WhackScreen extends ClickableScreen implements Runnable{
 
@@ -124,7 +124,7 @@ public class WhackScreen extends ClickableScreen implements Runnable{
 	}
 
 	private void changeText(String string) {
-		label.setText(string);
+		
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
