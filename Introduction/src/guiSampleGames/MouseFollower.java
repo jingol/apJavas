@@ -1,9 +1,9 @@
 package guiSampleGames;
 
-import gui.GUIapp;
+import gui.GUIApplication;
 import gui.screens.CoordinateScreen;
 
-public class MouseFollower extends GUIapp {
+public class MouseFollower extends GUIApplication {
 	
 	public static CoordinateScreen cs;
 	public static MouseFollower game;

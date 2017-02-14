@@ -1,8 +1,8 @@
 package whackamole;
 
-import gui.GUIapp;
+import gui.GUIApplication;
 
-public class WhackAMole extends GUIapp {
+public class WhackAMole extends GUIApplication {
 	
 
 	public WhackAMole(int width, int height) {

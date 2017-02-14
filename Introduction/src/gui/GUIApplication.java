@@ -6,13 +6,13 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.JFrame;
 
-public abstract class GUIapp extends JFrame implements Runnable{
+public abstract class GUIApplication extends JFrame implements Runnable{
 
 	//FIELDS
 	private Screen currentScreen;
 	
 
-	public GUIapp(int width, int height) {
+	public GUIApplication(int width, int height) {
 		super();
 		setBounds(20,20,width, height);
 		//terminates program when window is closed

@@ -2,9 +2,9 @@ package jasonSimon;
 
 import java.util.ArrayList;
 
-import gui.GUIapp;
+import gui.GUIApplication;
 
-public class SimonGameJasonLau extends GUIapp {
+public class SimonGameJasonLau extends GUIApplication {
 	
 	public SimonGameJasonLau(int width, int height) {
 		super(width, height);

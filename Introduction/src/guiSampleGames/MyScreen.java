@@ -1,22 +1,26 @@
 package guiSampleGames;
 
-import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import gui.Screen;
+<<<<<<< HEAD
 import gui.components.Action;
 import gui.components.Button;
 import gui.components.ClickableGraphic;
 import gui.components.Graphic;
 import gui.components.Visible;
+=======
+import guiCompononets.ClickableGraphic;
+import guiCompononets.Graphic;
+import guiCompononets.Visible;
+>>>>>>> branch 'master' of https://github.com/jingol/apJavas.git
 
 public class MyScreen extends Screen implements MouseListener,MouseMotionListener {
 	
 	private Graphic Vicki;
-	private Button myButton;
 	private ClickableGraphic clicks;
 
 	public MyScreen(int width, int height) {
