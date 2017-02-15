@@ -7,7 +7,6 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
 
-
 public class Button extends TextLabel implements Clickable{
 
 	private Color color;
