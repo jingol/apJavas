@@ -10,7 +10,7 @@ import gui.screens.ClickableScreen;
 
 public class WhackScreen extends ClickableScreen implements Runnable{
 
-	 private ArrayList<MoleInterface> moles;
+	 public ArrayList<MoleInterface> moles;
 	 private PlayerInterface player;
 	 private TextLabel label;
 	 private TextLabel timeLabel;
