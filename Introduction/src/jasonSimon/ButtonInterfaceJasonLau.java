@@ -1,6 +1,6 @@
 package jasonSimon;
 
-import guiCompononets.Clickable;
+import gui.components.Clickable;
 
 public interface ButtonInterfaceJasonLau extends Clickable {
 

@@ -1,4 +1,4 @@
-package guiScreens;
+package gui.screens;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gui.Screen;
-import guiCompononets.Clickable;
-import guiCompononets.Visible;
+import gui.components.Clickable;
+import gui.components.Visible;
 
 public abstract class ClickableScreen extends Screen implements MouseListener {
 	
@@ -15,7 +15,7 @@ private ArrayList<Clickable> clickables;
 	
 	public ClickableScreen(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public abstract void initAllObjects(List<Visible> viewObjects);
@@ -77,5 +77,11 @@ private ArrayList<Clickable> clickables;
 	public MouseListener getMouseListener(){
 		return this;
 	}
+
+	public void initAllObjects(ArrayList<Visible> clickarray) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 
 }

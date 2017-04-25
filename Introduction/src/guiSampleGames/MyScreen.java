@@ -6,9 +6,17 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import gui.Screen;
-import guiCompononets.ClickableGraphic;
-import guiCompononets.Graphic;
-import guiCompononets.Visible;
+
+import gui.components.Action;
+import gui.components.Button;
+import gui.components.ClickableGraphic;
+import gui.components.Graphic;
+import gui.components.Visible;
+
+import gui.components.ClickableGraphic;
+import gui.components.Graphic;
+import gui.components.Visible;
+
 
 public class MyScreen extends Screen implements MouseListener,MouseMotionListener {
 	

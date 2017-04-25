@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
-import guiCompononets.Visible;
+import gui.components.Visible;
 
 public abstract class Screen {
 	
