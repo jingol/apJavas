@@ -29,7 +29,6 @@ public abstract class Screen {
 	public void initImage(int width, int height) {
 		image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		update();
-		
 	}
 
 	public BufferedImage getImage(){
